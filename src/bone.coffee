@@ -60,9 +60,9 @@ class Bone
 
     options.dataType = @registry.communicationType
 
-    # TODO: Get this to use the HTTP standard Accept header, not ?format=json-p
+    # TODO: Get this to use the HTTP standard Accept header, not ?format=jsonp
     if @registry.communicationType == 'jsonp'
-      options.crossDomain = options.crossDomain or true
+      options.crossDomain ?= true
 
     @service.request url, options
 
